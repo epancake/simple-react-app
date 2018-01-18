@@ -6,7 +6,7 @@ import CharacterList from './components/CharacterList'
 class App extends Component {
   state = {characters: null}
 
-  componentWillMount() {
+  componentDidMount() {
     console.log('mounting')
     fetch('http://galvanize-cors-proxy.herokuapp.com/https://swapi.co/api/people')
       .then(response => response.json())
@@ -14,10 +14,6 @@ class App extends Component {
         this.setState({characters: data.results})
         console.log(this.state)
       })
-  }
-
-  componentDidMount() {
-    console.log(this.state.characters)
   }
 
   render() {
